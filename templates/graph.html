@@ -7,6 +7,8 @@
   <body>
     <div class=page>
       <h1>Stock Data for {{TICKER}}</h1>
+
+<FORM><INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;"></FORM>
       {{ div | safe }}
     </div>
   </body>
