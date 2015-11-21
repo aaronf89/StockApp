@@ -1,0 +1,45 @@
+<!doctype html>
+<title>Stock Ticker App</title>
+<link rel=stylesheet type=text/css href='{{ url_for('static',filename='style_app.css')}}'>
+<div class=page>
+  <h1>Historical Stock Data</h1>
+  <div class=metanav>
+
+<h4 align="left">
+Please enter the ticker symbol for the data you wish to see: <br> 
+</h4>
+
+<form id='userinfoform_app' method='post' action='graph' > <!-- action is the URL you want to move to next-->
+   <p align="left">
+   Symbol: <input type='text' name='name_app', value={{TICKER}} />
+   </p>
+<br> 
+<h4 align ="left">
+Please select the type of plot you'd like to see:
+</h4>
+
+
+<p align="left">
+
+<input type='radio' name='answer_from_layout_app' value='line' checked> Line plot with:   <br />
+
+<font color="red"> Error: Please select at least one type of data</font> <br>
+			&nbsp   &nbsp    &nbsp   &nbsp    		<input type="checkbox" name='features' value='Close'> Closing price         <br>
+			&nbsp   &nbsp    &nbsp   &nbsp    		<input type="checkbox" name='features' value='Adj.Close'>  Adjusted closing price<br>
+			&nbsp   &nbsp    &nbsp   &nbsp    		<input type="checkbox" name='features' value='Open'>    Opening price <br>
+			&nbsp   &nbsp    &nbsp   &nbsp    		<input type="checkbox" name='features' value='Adj.Open'>   Adjusted opening price<br>
+
+<br>
+
+ <input type='radio' name='answer_from_layout_app' value='candlestick' > Candlesticks &nbsp   &nbsp    &nbsp   &nbsp   &nbsp   &nbsp    <br />
+
+	  			</p>
+
+
+   <p align="left">
+   <input type='submit' value='Submit' /> <!-- value is the text that will appear on the button. -->
+   </p>
+</form>
+
+</div>
+</div>
