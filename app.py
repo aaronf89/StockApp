@@ -10,11 +10,12 @@ tickers=pd.read_csv('./ticker_list.csv', usecols=['Ticker'])
 
 
 BASE='https://www.quandl.com/api/v3/datasets/WIKI/'
-    
+  
+#Generte url for stock data
 def GetURL(ticker):
     return BASE+str(ticker.upper())+'.json'
 
-
+#Create a line plot of user requested price information
 def LinePlot(df, p):
     
     colors=['red', 'blue', 'black', 'cyan']
@@ -25,7 +26,7 @@ def LinePlot(df, p):
         
     return p
     
-    
+#Create a candlestick plot for the user inputted ticker symbol
 def CSPlot(df,p):
     
     mids = (df.Open + df.Close)/2
@@ -49,11 +50,18 @@ app.vars={}
 @app.route('/')
 def main():
     return redirect('/home')
-  
+ 
+#Render homepage which requests that the user enter a ticker symbol 
+#and the type of plot they would like to see
 @app.route('/home', methods=['GET', 'POST'])
 def home():
-    return render_template('home.html', num=6)  
+    return render_template('home.html')  
 
+#Renders the graph page but first checks for errors
+#If the user doesn't enter a valid ticker or does not choose 
+#a plot type they are redirected to the home page with an error
+#message. If everything is valid the user to sent to
+#a page with their requested plot.
 @app.route('/graph', methods=['GET', 'POST'])
 def graph():
         
