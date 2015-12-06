@@ -6,8 +6,6 @@ from bokeh.embed import components
 import datetime
 
 #Read in available ticker data
-#tickers=pd.read_csv('C://Users/Aaron/Documents/Data_Incubator/flask-demo-master/ticker_list.csv', usecols=['Ticker'])
-
 tickers=pd.read_csv('./ticker_list.csv', usecols=['Ticker'])
 
 
@@ -97,4 +95,4 @@ def graph():
         return render_template('graph.html', script=script, div=div, TICKER=ticker)      
 
 if __name__ == '__main__':
-  app.run(port=33507, debug=True)
+  app.run()
